@@ -17,13 +17,12 @@ var ParkIndex = React.createClass({
   },
 
   render: function () {
+    var parks = this.state.parks.map( function (park) {
+      return <li key={park.id}> {park.description} </li>;
+    });
     return(
       <ul className="park-index">
-        {
-          this.state.parks.map( function (park) {
-            return <li key={park.id} className="park">{park}</li>;
-          })
-        }
+        {parks}
       </ul>
     );
   }

@@ -2,16 +2,17 @@ var Map = React.createClass({
 
   _populateMapMarkers: function() {
     var parks = ParkStore.all();
-    var markers = [];
+    var activeMarkers = [];
 
     for (var i = 0; i < parks.length; i++) {
-      markers.push(this._addMarker(parks[i]));
-    }
+        activeMarkers.push(this.addMarker(parks[i]));
+    } // there's a better way to do this... find it.
 
-    this.setState({ markers: markers });
+    this.removeMarkers();
+    this.setState({ markers: activeMarkers });
   },
 
-  _addMarker: function (park) {
+  addMarker: function (park) {
     var marker = new google.maps.Marker({
       map: this.map,
       position: { lat: park.lat, lng: park.lng },
@@ -20,6 +21,12 @@ var Map = React.createClass({
       animation: google.maps.Animation.DROP,
     });
     return marker;
+  },
+
+  removeMarkers: function () {
+    this.state.markers.forEach(function (marker) {
+      marker.setMap(null);
+    });
   },
 
   _idleMapListener: function () {
@@ -61,7 +68,6 @@ var Map = React.createClass({
   render: function () {
     return(
       <div className="map" ref="map">
-
       </div>
     );
   }
