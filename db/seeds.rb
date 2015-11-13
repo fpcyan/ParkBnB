@@ -10,7 +10,8 @@
 # Parks.destroy_all
 
 
-Park.create!(description: "This place has warm computers to sleep on nearby", lat: 40.725142, lng: -73.995611)
+Park.create!(description: "This place has warm computers to sleep on
+", lat: 40.725142, lng: -73.995611)
 Park.create!(description: "Lots of fun music", lat: 40.731191, lng: -73.998228)
 
 pos = [40.742084, -73.988186]

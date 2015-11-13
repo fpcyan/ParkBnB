@@ -10,7 +10,6 @@ var ParkIndex = React.createClass({
 
   componentDidMount: function () {
     ParkStore.addChangeListener(this._onChange);
-    ApiUtil.fetchParks();
   },
 
   componentWillUnmount: function () {
