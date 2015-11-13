@@ -1,1 +1,1 @@
-json.extract!( park, :description, :lat, :lng )
+json.extract!( park, :id, :description, :lat, :lng )
