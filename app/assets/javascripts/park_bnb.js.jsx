@@ -1,7 +1,7 @@
 
 $(document).ready( function() {
   React.render(
-    <ParkIndex />,
+    <Search />,
     document.getElementById("content")
   );
 });

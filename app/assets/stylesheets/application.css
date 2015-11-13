@@ -13,3 +13,36 @@
  *= require_tree .
  *= require_self
  */
+
+/* RESET */
+
+head, body, div, section, ul, li {
+  font: inherit;
+  text-decoration: inherit;
+  background: transparent;
+
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+body {
+  height: 100%;
+}
+
+ul {
+  list-style: none;
+}
+
+.group :after {
+  content: "";
+  display: block;
+  clear: both;
+
+}
+
+.map {
+  width: 500px;
+  height: 500px;
+}

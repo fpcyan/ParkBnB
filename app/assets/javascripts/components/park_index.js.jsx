@@ -5,7 +5,7 @@ var ParkIndex = React.createClass({
   },
 
   getInitialState: function () {
-    return ({ parks: ParkStore.all() });
+    return({ parks: ParkStore.all() });
   },
 
   componentDidMount: function () {
