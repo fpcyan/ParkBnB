@@ -22,6 +22,20 @@ var Map = React.createClass({
     return marker;
   },
 
+  _idleMapListener: function () {
+    var bounds = this.map.getBounds();
+    var northEast = bounds.getNorthEast();
+    var southWest = bounds.getSouthWest();
+
+
+    var mapcorners = {
+      northEast: { lat: northEast.lat(), lng: northEast.lng() },
+      southWest: { lat: southWest.lat(), lng: southWest.lng() }
+    };
+
+    ApiUtil.fetchParks(mapcorners);
+  },
+
   getInitialState: function () {
     return({ markers: [] });
   },
@@ -33,7 +47,7 @@ var Map = React.createClass({
       zoom: 13
     };
     this.map = new google.maps.Map(map, mapOptions);
-    this.map.addListener('idle', ApiUtil.fetchParks);
+    this.map.addListener('idle', this._idleMapListener);
     ParkStore.addChangeListener(this._populateMapMarkers);
   },
 

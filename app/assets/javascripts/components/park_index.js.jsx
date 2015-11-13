@@ -17,7 +17,6 @@ var ParkIndex = React.createClass({
   },
 
   render: function () {
-
     return(
       <ul className="park-index">
         {
