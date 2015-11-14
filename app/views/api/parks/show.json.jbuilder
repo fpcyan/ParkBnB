@@ -1,1 +1,1 @@
-json.partial!( park: @park, partial: "park", as: :park )
+json.partial!( "park", park: @park )
